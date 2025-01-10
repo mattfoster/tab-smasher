@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tab Smasher</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      width: 480px;
+      padding: 20px;
+      background: #f8f9fa;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #f1f3f5;
+      font-weight: 600;
+      color: #495057;
+    }
+
+    td:last-child {
+      text-align: center;
+      width: 80px;
+    }
+
+    td:first-child:hover {
+      background: #e9ecef;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    a {
+      color: #228be6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      color: #212529;
+      margin-top: 0;
+    }
+    footer {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
+      color: #868e96;
+      font-size: 13px;
+      text-align: center;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #212529;
+    }
+  /* Add to your existing styles */
+  td:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .close-icon {
+    color: #868e96;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  td:first-child:hover .close-icon {
+    opacity: 1;
+    color: #ff6b6b;
+  }
+</style>
+
+</head>
+<body>
+  <div class="header">
+    <img src="icon.png" alt="Tab Smasher">
+    <h1>Tab Smasher</h1>
+  </div>
+  <table id="domainTable">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <h2>All Tabs</h2>
+  <ul id="tabList"></ul>
+  <footer>
+    <p>Tab Smasher - Made with 🤖❤️ by <a href="https://hackerific.net">Matt</a></p>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -24,3 +24,6 @@ enough and want to keep this simple.
 
 I have no idea, I only really wrote the readme. 
 
+### What does it look like?
+
+![screenshot](https://github.com/mattfoster/tab-smasher/blob/main/screenshot.png?raw=true)

@@ -10,9 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
       tabs.forEach((tab) => {
         const url = new URL(tab.url);
         const domain = url.hostname;
-        const pathParts = url.pathname.split('/').filter(part => part.length > 0);
-        const firstPath = pathParts.length > 0 ? '/' + pathParts[0] : '';
-        
+        const pathParts = url.pathname
+          .split("/")
+          .filter((part) => part.length > 0);
+        const firstPath = pathParts.length > 0 ? "/" + pathParts[0] : "";
+
         if (domain === "") {
           return;
         }
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
           domainData[domain] = {
             count: 0,
             paths: {},
-            hasPinned: false
+            hasPinned: false,
           };
         }
 
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!domainData[domain].paths[fullPath]) {
           domainData[domain].paths[fullPath] = {
             count: 0,
-            hasPinned: false
+            hasPinned: false,
           };
         }
         domainData[domain].paths[fullPath].count++;
@@ -76,11 +78,16 @@ document.addEventListener("DOMContentLoaded", () => {
         domainTableBody.appendChild(domainRow);
 
         if (domainData[domain].count > 1) {
-          Object.keys(domainData[domain].paths).forEach(path => {
-            if (path !== domain && domainData[domain].paths[path].count < domainData[domain].count) {
+          Object.keys(domainData[domain].paths).forEach((path) => {
+            if (
+              path !== domain &&
+              domainData[domain].paths[path].count < domainData[domain].count
+            ) {
               const pathRow = document.createElement("tr");
               const tdPath = document.createElement("td");
-              const pathPinIndicator = domainData[domain].paths[path].hasPinned ? "📌 " : "";
+              const pathPinIndicator = domainData[domain].paths[path].hasPinned
+                ? "📌 "
+                : "";
               tdPath.style.paddingLeft = "20px";
               tdPath.style.cursor = "pointer";
               tdPath.title = "Click to close all unpinned tabs from this path";
@@ -90,7 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 chrome.tabs.query({}, (tabs) => {
                   tabs.forEach((tab) => {
                     const url = new URL(tab.url);
-                    const tabPath = url.hostname + url.pathname.split('/').filter(part => part.length > 0).map(p => '/' + p)[0];
+                    const tabPath =
+                      url.hostname
+                      url.pathname
+                        .split("/")
+                        .filter((part) => part.length > 0)
+                        .map((p) => "/" + p)[0];
                     if (!tab.pinned && tabPath === path) {
                       chrome.tabs.remove(tab.id, () => {
                         loadTabs();

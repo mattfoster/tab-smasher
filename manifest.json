@@ -9,10 +9,6 @@
   "permissions": [
     "tabs"
   ],
-  "background": {
-    "scripts": ["background.js"],
-    "type": "module"
-  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

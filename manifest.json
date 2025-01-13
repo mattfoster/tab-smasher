@@ -8,7 +8,8 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "tab-smasher@hackerific.net"
+      "id": "tab-smasher@hackerific.net",
+      "update_url": "https://files.hackerific.net/tab-smasher/updates.json"
     }
   },
   "permissions": [
